@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div data-th-fragment="menu_topo">
+		<nav class="navbar navbar-inverse">
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a data-th-href="@{/index}">Home - Visitant Side</a></li>
+					<li><a data-th-href="@{/admin}">Home - Administrador Side</a></li>
+					<li><a data-th-href="@{/admin/sobre}">Sobre</a></li>
+					<li><a data-th-href="@{/admin/experiencia}">Experiencia</a></li>
+					<li><a data-th-href="@{/admin/atividade}">Atividades</a></li>
+					<li><a data-th-href="@{/admin/formacao}">Formação</a></li>
+					<li><a data-th-href="@{/admin/cursosC}">Cursos </a></li>
+					<li><a data-th-href="@{/admin/projeto}">Projetos</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</body>
+</html>

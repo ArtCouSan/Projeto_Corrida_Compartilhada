@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Home</title>
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+<link data-th-href="@{/webjars/font-awesome/css/font-awesome.css}"
+	rel="stylesheet" />
+<link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+<link data-th-href="@{/css/buttons.css}" rel="stylesheet"
+	type="text/css" />
+<link rel="shortcut icon" th:href="@{/icons/favicon.ico}" />
+<link rel="apple-touch-icon" sizes="57x57"
+	data-th-href="@{/icons/apple-icon-57x57.png}" />
+<link rel="apple-touch-icon" sizes="60x60"
+	data-th-href="@{/icons/apple-icon-60x60.png}" />
+<link rel="apple-touch-icon" sizes="72x72"
+	data-th-href="@{/icons/apple-icon-72x72.png}" />
+<link rel="apple-touch-icon" sizes="76x76"
+	data-th-href="@{/icons/apple-icon-76x76.png}" />
+<link rel="apple-touch-icon" sizes="114x114"
+	data-th-href="@{/icons/apple-icon-114x114.png}" />
+<link rel="apple-touch-icon" sizes="120x120"
+	data-th-href="@{/icons/apple-icon-120x120.png}" />
+<link rel="apple-touch-icon" sizes="144x144"
+	data-th-href="@{/icons/apple-icon-144x144.png}" />
+<link rel="apple-touch-icon" sizes="152x152"
+	data-th-href="@{/icons/apple-icon-152x152.png}" />
+<link rel="apple-touch-icon" sizes="180x180"
+	data-th-href="@{/icons/apple-icon-180x180.png}" />
+<link rel="icon" type="image/png" sizes="192x192"
+	data-th-href="@{/icons/android-icon-192x192.png}" />
+<link rel="icon" type="image/png" sizes="32x32"
+	data-th-href="@{/icons/favicon-32x32.png}" />
+<link rel="icon" type="image/png" sizes="96x96"
+	data-th-href="@{/icons/favicon-96x96.png}" />
+<link rel="icon" type="image/png" sizes="16x16"
+	data-th-href="@{/icons/favicon-16x16.png}" />
+<link rel="manifest" data-th-href="@{/icons/manifest.json}" />
+<meta name="msapplication-TileColor" data-content="@{/icons/#ffffff}" />
+<meta name="msapplication-TileImage"
+	data-content="@{/icons/ms-icon-144x144.png}" />
+<meta name="theme-color" data-content="@{/icons/#ffffff}" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav home_titulo">
+				<li class="active"><a><i class="fa fa-user-o"
+						aria-hidden="true"></i> - Sobre Autor</a></li>
+				<li><a><i class="fa fa-briefcase"
+						aria-hidden="true"></i>Cadastrar Motorista</a></li>
+				<li><a><i class="fa fa-graduation-cap"
+						aria-hidden="true"></i>Consultar Motoristas</a></li>
+				<li><a><i class="fa fa-graduation-cap"
+						aria-hidden="true"></i> - Formação Técnica</a></li>
+				<li><a><i class="fa fa-trophy" aria-hidden="true"></i>
+						- Cursos Complementares</a></li>
+				<li><a><i class="fa fa-coffee" aria-hidden="true"></i>
+						- Projetos</a></li>
+				<li><a><i
+						class="fa fa-github-alt" aria-hidden="true"></i> - GitHub</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+
+
+
+	</div>
+	<script data-th-src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

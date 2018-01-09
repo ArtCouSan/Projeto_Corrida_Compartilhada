@@ -1,0 +1,7 @@
+package com.corrida.entity;
+
+@Entity
+@Table(name = "TB_MOTORISTA")
+public class Motorista {
+
+}

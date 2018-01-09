@@ -1,0 +1,51 @@
+package com.corrida.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+@Entity
+@Table(name = "TB_MOTORISTA")
+public class Motorista {
+
+	@javax.persistence.Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_MOTORISTA")
+	private Long Id;
+	
+	@NotBlank(message = "O nome é obrigatario!")
+    @Size(max = 200, message = "O nome deve conter no maximo 200 caracteres!")
+	@Column(name = "MOTORISTA_NOME", length = 200)
+	private String nome;
+	
+	@NotBlank(message = "A data de nascimento é obrigataria!")
+    @Size(max = 200, message = "O nome do curso deve conter no m�ximo 200 caract�res!")
+	@Column(name = "MOTORISTA_DTNASCIMENTO", length = 200)
+	private String dtNascimento;
+	
+	@NotBlank(message = "O nome do curso é obrigatario!")
+    @Size(max = 200, message = "O nome do curso deve conter no m�ximo 200 caract�res!")
+	@Column(name = "MOTORISTA_CPF", length = 200)
+	private String CPF;
+	
+	@NotBlank(message = "O nome do curso é obrigatario!")
+    @Size(max = 200, message = "O nome do curso deve conter no m�ximo 200 caract�res!")
+	@Column(name = "MOTORISTA_MDCARRO", length = 200)
+	private String modeloCarro;
+	
+	@NotBlank(message = "O nome do curso é obrigatario!")
+    @Size(max = 200, message = "O nome do curso deve conter no m�ximo 200 caract�res!")
+	@Column(name = "MOTORISTA_STATUS", length = 200)
+	private boolean status;
+	
+	@NotBlank(message = "O nome do curso é obrigatario!")
+    @Size(max = 200, message = "O nome do curso deve conter no m�ximo 200 caract�res!")
+	@Column(name = "MOTORISTA_SEXO", length = 200)
+	private String sexo;
+	
+}

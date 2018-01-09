@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Motorista</title>
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+<link data-th-href="@{/css/buttons.css}" rel="stylesheet"
+	type="text/css" />
+<link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+	<div data-th-include="~{cabecalho  :: menu_topo}"></div>
+
+	<div class="container">
+
+		<!-- FORMULARIO -->
+		<div class="row">
+
+			<div
+				class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+
+				<form action="#" method="post" data-th-action="@{/corrida}"
+					data-th-object="${corrida}" novalidate>
+
+					<div class="form-group"
+						data-th-classappend="${#fields.hasErrors('sexo')} ? has-error">
+						<label for="sel1">* Sexo:</label> <select name="sexo"
+							data-th-field="*{sexo}" class="form-control" id="sel1">
+							<option value="">Escolha o motorista :</option>
+							<option value="Masculino">Masculino</option>
+							<option value="Feminino">Feminino</option>
+						</select>
+					</div>
+
+					<label for="basic-url">* CPF:</label>
+					<div class="input-group input_"
+						data-th-classappend="${#fields.hasErrors('CPF')} ? has-error">
+						<span class="input-group-addon" id="sizing-addon2"><span
+							class="glyphicon glyphicon-user"></span></span> <input
+							data-th-field="*{CPF}" type="text" class="CPF form-control"
+							aria-describedby="sizing-addon2" required>
+					</div>
+
+					<input type="hidden" data-th-if="${passageiro.id != null}"
+						data-th-field="*{id}" data-th-value="${passageiro.id}" />
+
+
+					<button type="submit"
+						class="button button-raised button-primary button-pill botaoC">Salvar</button>
+					<br />
+
+					<p class="textCampo text-right">* Campos obrigatórios</p>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+	<script data-th-src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script data-th-src="@{/js/jquery.mask.js}"></script>
+	<script data-th-src="@{/js/mascara.js}"></script>
+</body>
+</html>

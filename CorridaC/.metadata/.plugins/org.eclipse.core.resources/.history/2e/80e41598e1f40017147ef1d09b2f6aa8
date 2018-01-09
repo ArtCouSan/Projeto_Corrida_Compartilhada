@@ -1,0 +1,106 @@
+package com.corrida.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+@Entity
+@Table(name = "TB_MOTORISTA")
+public class Motorista {
+
+	@javax.persistence.Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_MOTORISTA")
+	private Long Id;
+
+	@NotBlank(message = "O nome é obrigatario!")
+	@Size(max = 200, message = "O nome deve conter no maximo 200 caracteres!")
+	@Column(name = "MOTORISTA_NOME", length = 200)
+	private String nome;
+
+	@NotBlank(message = "A data de nascimento é obrigataria!")
+	@Size(max = 20)
+	@Column(name = "MOTORISTA_DTNASCIMENTO", length = 20)
+	private String dtNascimento;
+
+	@org.hibernate.validator.constraints.br.CPF
+	@NotBlank(message = "O cpf é obrigatario!")
+	@Column(name = "MOTORISTA_CPF", length = 20)
+	private String CPF;
+
+	@NotBlank(message = "O modelo do carro é obrigatario!")
+	@Size(max = 200, message = "O modelo do carro deve conter no maximo 200 caracteres!")
+	@Column(name = "MOTORISTA_MDCARRO", length = 200)
+	private String modeloCarro;
+
+	@NotNull
+	@Column(name = "MOTORISTA_STATUS")
+	private Long status;
+
+	@NotBlank(message = "O sexo é obrigatario!")
+	@Column(name = "MOTORISTA_SEXO", length = 50)
+	private String sexo;
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getDtNascimento() {
+		return dtNascimento;
+	}
+
+	public void setDtNascimento(String dtNascimento) {
+		this.dtNascimento = dtNascimento;
+	}
+
+	public String getCPF() {
+		return CPF;
+	}
+
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
+
+	public String getModeloCarro() {
+		return modeloCarro;
+	}
+
+	public void setModeloCarro(String modeloCarro) {
+		this.modeloCarro = modeloCarro;
+	}
+
+	public Long isStatus() {
+		return status;
+	}
+
+	public void setStatus(Long status) {
+		this.status = status;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+}

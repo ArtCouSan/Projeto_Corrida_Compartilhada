@@ -1,0 +1,5 @@
+package com.corrida.controller;
+
+public class ControllerPassageiro {
+
+}

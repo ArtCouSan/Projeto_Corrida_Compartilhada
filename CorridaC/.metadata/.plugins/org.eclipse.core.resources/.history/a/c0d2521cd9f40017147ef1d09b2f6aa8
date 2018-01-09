@@ -1,0 +1,45 @@
+package com.corrida.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/motorista")
+public class ControllerMotorista {
+
+	@GetMapping
+	public ModelAndView home() {
+
+		ModelAndView modelAndView = new ModelAndView("a").addObject("formacao", new Formacao());
+		return modelAndView;
+		
+	}
+
+	@PostMapping
+	public ModelAndView add_update(@ModelAttribute(value = "formacao") @Valid Formacao formacao, BindingResult result,
+			RedirectAttributes attributes) {
+
+		if (result.hasErrors()) {
+			return new ModelAndView("adminFormacao");
+		}
+		
+		if(formacao.getId() == null) {
+			
+			service.incluir(formacao);
+
+			attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
+			return new ModelAndView("redirect:/admin/formacao");
+			
+		}else {
+			
+			service.alterar(formacao);
+			
+			attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
+			return new ModelAndView("redirect:/admin/");
+			
+			
+		}
+		
+	}
+	
+}

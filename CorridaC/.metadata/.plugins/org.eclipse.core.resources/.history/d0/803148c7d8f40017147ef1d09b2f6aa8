@@ -1,0 +1,8 @@
+package com.corrida.controller;
+
+
+@Controller
+@RequestMapping("/motorista")
+public class ControllerMotorista {
+
+}

@@ -1,0 +1,7 @@
+package com.corrida.controller;
+
+@Controller
+@RequestMapping("/", "/index")
+public class Controller {
+
+}

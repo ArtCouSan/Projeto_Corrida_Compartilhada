@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<div data-th-fragment="menu_topo">
+		<nav class="navbar navbar-inverse">
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav home_titulo">
+					<li class="active"><a><i class="fa fa-user-o"
+							aria-hidden="true"></i> Home</a></li>
+					<li><a data-th-href="@{/motorista}"><i class="fa fa-briefcase" aria-hidden="true"></i>Cadastrar
+							Motorista</a></li>
+					<li><a><i class="fa fa-graduation-cap" aria-hidden="true"></i>Consultar
+							Motoristas</a></li>
+					<li><a><i class="fa fa-graduation-cap" aria-hidden="true"></i>Cadastrar
+							Passageiro</a></li>
+					<li><a><i class="fa fa-trophy" aria-hidden="true"></i>Consultar
+							Passageiros</a></li>
+					<li><a><i class="fa fa-coffee" aria-hidden="true"></i>
+							Cadastrar Corridas</a></li>
+					<li><a><i class="fa fa-github-alt" aria-hidden="true"></i>Consultar
+							Corridas</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</body>
+</html>

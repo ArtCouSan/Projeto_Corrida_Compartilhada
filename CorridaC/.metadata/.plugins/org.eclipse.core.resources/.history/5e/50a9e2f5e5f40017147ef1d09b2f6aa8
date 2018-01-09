@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Home</title>
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+</head>
+<body>
+	<div data-th-include="~{cabecalho  :: menu_topo}"></div>
+
+	<div class="container">
+		<div class="row">
+			<table class="table table-bordered" style="background-color: white;">
+				<thead>
+					<tr>
+						<th scope="col">Empresa</th>
+						<th scope="col">Período</th>
+						<th scope="col">Cargo</th>
+						<th scope="col">Editar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-th-if="${passageiros != null}"
+						data-th-each="passageiro : ${passageiros}">
+						<td data-th-text="${passageiro.nome}"></td>
+						<td data-th-text="${passageiro.dtNascimento}"></td>
+						<td data-th-text="${passageiro.CPF}"></td>
+						<td class=" _tabB"><a
+							data-th-href="@{/passageiro/experiencia/search/}  + ${passageiro.id}"
+							class="button button-rounded button-primary button-tiny">Editar</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script data-th-src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+package com.corrida.entity;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_CORRIDA")
+public class Corrida {
+
+	@javax.persistence.Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID_CORRIDA")
+	private Long Id;
+	
+	@Column(name = "CORRIDA_MOTORISTA")
+	private Long IdMotorista;
+	
+	@Column(name = "CORRIDA_PASSAGEIRO")
+	private Long IdPassageiro;
+	
+	@Column(name = "CORRIDA_VALOR")
+	private BigDecimal valor;
+	
+	
+}
