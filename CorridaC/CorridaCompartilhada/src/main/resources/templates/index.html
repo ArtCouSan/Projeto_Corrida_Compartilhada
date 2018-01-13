@@ -9,11 +9,27 @@
 	rel="stylesheet" />
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
+<link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+<link data-th-href="@{/css/buttons.css}" rel="stylesheet"
+	type="text/css" />
+<link data-th-href="@{/css/forms.css}" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 	<div data-th-include="~{cabecalho  :: menu_topo}"></div>
-
-	<div class="container"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-md-12 col-lg-12">
+				<h1 class="text-center text_acme">Teste web.</h1>
+				<h3 class="text-center text_acme">Site feito para teste web.</h3>
+				<h3 class="text-center text_acme">Disponibilizado o cogido
+					fonte no GitHub</h3>
+				<a class="botao button button-primary button-circle "
+					href="https://github.com/ArtCouSan/Projeto_Corrida_Compartilhada"
+					target="_blank"><i class="glyphicon glyphicon-link"></i></a>
+			</div>
+		</div>
+	</div>
 	<script data-th-src="@{/webjars/jquery/jquery.min.js}"></script>
 	<script data-th-src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>

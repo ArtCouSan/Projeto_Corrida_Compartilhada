@@ -1,2 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Acme');
 
+.text_acme{
+	font-family: 'Acme', sans-serif;
+}
 

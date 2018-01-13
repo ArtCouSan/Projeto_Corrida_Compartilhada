@@ -4,20 +4,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Home</title>
+<title>Consultar Motorista</title>
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
+<link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<div data-th-include="~{cabecalho  :: menu_topo}"></div>
 
 	<div class="container">
 		<div class="row">
-			<table class="table table-bordered" style="background-color: white;">
+			<table class="table table-bordered">
 				<thead>
-					<tr>
+					<tr style="background-color: rgb(255, 250, 250)">
 						<th scope="col">Nome</th>
 						<th scope="col">Sexo</th>
 						<th scope="col">Data de Nascimento</th>
@@ -35,7 +36,8 @@
 						<td data-th-text="${motorista.dtNascimento}"></td>
 						<td data-th-text="${motorista.CPF}"></td>
 						<td data-th-text="${motorista.modeloCarro}"></td>
-						<td data-th-text="${motorista.status}"></td>
+						<td data-th-if="${motorista.status} == 1" data-th-text="Ativo"></td>
+						<td data-th-if="${motorista.status} == 0" data-th-text="Inativo"></td>
 						<td class=" _tabB"><a
 							data-th-href="@{/motorista/procurar/}  + ${motorista.id}"
 							class="button button-rounded button-primary button-tiny">Editar</a></td>

@@ -1,7 +1,10 @@
 package com.corrida.controller;
 
+import java.util.ArrayList;
+
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,15 +16,34 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.corrida.entity.Corrida;
+import com.corrida.entity.Motorista;
+import com.corrida.entity.Passageiro;
+import com.corrida.service.CorridaService;
+import com.corrida.service.MotoristaService;
+import com.corrida.service.PassageiroService;
 
 @Controller
 @RequestMapping("/corrida")
 public class ControllerCorrida {
 
+	@Autowired
+	private CorridaService service;
+
+	@Autowired
+	private MotoristaService serviceMotoristas;
+
+	@Autowired
+	private PassageiroService servicePassageiros;
+
 	@GetMapping
 	public ModelAndView home() {
 
-		ModelAndView modelAndView = new ModelAndView("corrida").addObject("corrida", new Corrida());
+		ArrayList<Motorista> motoristas = (ArrayList<Motorista>) serviceMotoristas.listar();
+
+		ArrayList<Passageiro> passageiros = (ArrayList<Passageiro>) servicePassageiros.listar();
+
+		ModelAndView modelAndView = new ModelAndView("corrida").addObject("corrida", new Corrida())
+				.addObject("passageiros", passageiros).addObject("motoristas", motoristas);
 		return modelAndView;
 
 	}
@@ -36,14 +58,14 @@ public class ControllerCorrida {
 
 		if (corrida.getId() == null) {
 
-			// service.incluir(formacao);
+			service.incluir(corrida);
 
 			attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
 			return new ModelAndView("redirect:/corrida");
 
 		} else {
 
-			// service.alterar(formacao);
+			service.alterar(corrida);
 
 			attributes.addFlashAttribute("mensagem", "Enviado com sucesso");
 			return new ModelAndView("redirect:/corrida");
@@ -57,32 +79,28 @@ public class ControllerCorrida {
 
 		Long idF = new Long(id);
 
-		// Corrida corrida = service.obter(idF);
-		//
-		// corrida.setId(idF);
-		//
-		// service.alterar(corrida);
-		//
-		// ModelAndView modelAndView = new ModelAndView("corrida").addObject("corrida",
-		// corrida);
-		// return modelAndView;
-		//
+		Corrida corrida = service.obter(idF);
 
-		return null;
+		corrida.setId(idF);
+
+		service.alterar(corrida);
+
+		ModelAndView modelAndView = new ModelAndView("corrida").addObject("corrida", corrida);
+		return modelAndView;
 
 	}
 
 	@RequestMapping(value = "/consultarCorrida")
 	public ModelAndView searchAll() {
 
-		// ArrayList<Corrida> corrida = (ArrayList<Corrida>)
-		// formacaoService.listar();
-		//
-		// ModelAndView modelAndView = new ModelAndView("consultarCorrida").addObject("corrida",
-		// corrida);
-		// return modelAndView;
+		ArrayList<Corrida> corrida = (ArrayList<Corrida>) service.listar();
 
-		return null;
+		ArrayList<Passageiro> passageiro = (ArrayList<Passageiro>) servicePassageiros.listar();
+		
+		ArrayList<Motorista> motorista =  (ArrayList<Motorista>) serviceMotoristas.listar();
+		
+		ModelAndView modelAndView = new ModelAndView("consultaCorrida").addObject("corridas", corrida).addObject("passageiros", passageiro).addObject("motoristas", motorista);
+		return modelAndView;
 
 	}
 

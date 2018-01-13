@@ -19,11 +19,11 @@ public class Corrida {
 	private Long Id;
 	
 	@NotNull
-	@Column(name = "CORRIDA_MOTORISTA")
+	@Column(name = "ID_MOTORISTA")
 	private Long IdMotorista;
 	
 	@NotNull
-	@Column(name = "CORRIDA_PASSAGEIRO")
+	@Column(name = "ID_PASSAGEIRO")
 	private Long IdPassageiro;
 	
 	@NotNull

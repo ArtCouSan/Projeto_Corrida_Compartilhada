@@ -1,0 +1,13 @@
+.campos{
+	padding-bottom: 3%;
+}
+
+.obrigatorio{
+	font-weight: bold;
+	color: red;
+}
+
+.botao{
+	margin: auto;
+	display: block;
+}

@@ -4,20 +4,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Home</title>
+<title>Consultar Passageiro</title>
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
+<link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 	<div data-th-include="~{cabecalho  :: menu_topo}"></div>
 
 	<div class="container">
 		<div class="row">
-			<table class="table table-bordered" style="background-color: white;">
+			<table class="table table-bordered">
 				<thead>
-					<tr>
+					<tr style="background-color: rgb(255, 250, 250)">
 						<th scope="col">Nome</th>
 						<th scope="col">Data de Nascimento</th>
 						<th scope="col">CPF</th>

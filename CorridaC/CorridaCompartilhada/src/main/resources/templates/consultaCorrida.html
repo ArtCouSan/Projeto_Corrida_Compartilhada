@@ -4,30 +4,40 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Home</title>
+<title>Consultar Corrida</title>
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
+<link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 	<div data-th-include="~{cabecalho  :: menu_topo}"></div>
 
 	<div class="container">
 		<div class="row">
-			<table class="table table-bordered" style="background-color: white;">
+			<table class="table table-bordered">
 				<thead>
-					<tr>
-						<th scope="col">Id Motorista</th>
-						<th scope="col">Id Passageiro</th>
+					<tr style="background-color: rgb(255, 250, 250)">
+						<th scope="col">Motorista</th>
+						<th scope="col">Passageiro</th>
 						<th scope="col">Valor</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr data-th-if="${corridas != null}"
 						data-th-each="corrida : ${corridas}">
-						<td data-th-text="${corrida.IdMotorista}"></td>
-						<td data-th-text="${corrida.IdPassageiro}"></td>
+						<div data-th-if="${motoristas != null}"
+							data-th-each="motorista: ${motoristas}">
+							<td data-th-if="${corrida.idMotorista} ==  ${motorista.id}"
+								data-th-text="${motorista.nome}"></td>
+						</div>
+						<div data-th-if="${passageiros != null}"
+							data-th-each="passageiro : ${passageiros}">
+							<td data-th-if="${corrida.idPassageiro} ==  ${passageiro.id}"
+								data-th-text="${passageiro.nome}"></td>
+						</div>
 						<td data-th-text="${corrida.Valor}"></td>
 					</tr>
 				</tbody>

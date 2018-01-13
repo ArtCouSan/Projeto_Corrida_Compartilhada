@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>Motorista</title>
+<title>Corrida</title>
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet" />
 <link data-th-href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
@@ -12,6 +12,7 @@
 <link data-th-href="@{/css/buttons.css}" rel="stylesheet"
 	type="text/css" />
 <link data-th-href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+<link data-th-href="@{/css/forms.css}" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -28,36 +29,51 @@
 				<form action="#" method="post" data-th-action="@{/corrida}"
 					data-th-object="${corrida}" novalidate>
 
-					<div class="form-group"
+					<div class=" campos form-group"
 						data-th-classappend="${#fields.hasErrors('IdMotorista')} ? has-error">
 						<label for="sel1">* Motorista:</label> <select name="IdMotorista"
 							data-th-field="*{IdMotorista}" class="form-control" id="sel1">
 							<option value="">Escolha o motorista :</option>
+							<div data-th-if="${motoristas != null}">
+								<option data-th-each="motorista : ${motoristas}"
+									data-th-if="${motorista.status} != 0"
+									data-th-value="${motorista.id}"
+									data-th-text="${motorista.nome}"></option>
+							</div>
 						</select>
 					</div>
-					
-					<div class="form-group"
+
+					<div class="campos form-group"
 						data-th-classappend="${#fields.hasErrors('IdPassageiro')} ? has-error">
-						<label for="sel1">* Passageiro:</label> <select name="IdPassageiro"
-							data-th-field="*{IdPassageiro}" class="form-control" id="sel1">
+						<label for="sel1">* Passageiro:</label> <select
+							name="IdPassageiro" data-th-field="*{IdPassageiro}"
+							class="form-control" id="sel1">
 							<option value="">Escolha o passageiro :</option>
+							<option data-th-if="${passageiros != null}"
+								data-th-each="passageiro : ${passageiros}"
+								data-th-value="${passageiro.id}"
+								data-th-text="${passageiro.nome}"></option>
 						</select>
 					</div>
 
 					<label for="basic-url">* Valor:</label>
-					<div class="input-group input_"
+					<div class="campos input-group input_"
 						data-th-classappend="${#fields.hasErrors('valor')} ? has-error">
 						<span class="input-group-addon" id="sizing-addon2"><span
-							class="glyphicon glyphicon-user"></span></span> <input
+							class="glyphicon glyphicon-usd"></span></span> <input
 							data-th-field="*{valor}" type="text" class="valor form-control"
 							aria-describedby="sizing-addon2" required>
 					</div>
 
+					<div data-th-if="${mensagem} != null" class="alert alert-success"
+						data-th-text="${mensagem}" role="alert"></div>
+
+
 					<button type="submit"
-						class="button button-raised button-primary button-pill botaoC">Salvar</button>
+						class="botao button button-raised button-primary button-pill">Salvar</button>
 					<br />
 
-					<p class="textCampo text-right">* Campos obrigatórios</p>
+					<p class="obrigatorio text-right">* Campos obrigatórios</p>
 
 				</form>
 

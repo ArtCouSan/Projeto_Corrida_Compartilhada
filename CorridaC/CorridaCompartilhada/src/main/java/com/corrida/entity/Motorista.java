@@ -1,14 +1,18 @@
 package com.corrida.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "TB_MOTORISTA")
@@ -24,10 +28,10 @@ public class Motorista {
 	@Column(name = "MOTORISTA_NOME", length = 200)
 	private String nome;
 
-	@NotBlank(message = "A data de nascimento é obrigataria!")
-	@Size(max = 20)
-	@Column(name = "MOTORISTA_DTNASCIMENTO", length = 20)
-	private String dtNascimento;
+	@Past
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Column(name = "MOTORISTA_DTNASCIMENTO")
+	private Date dtNascimento;
 
 	@org.hibernate.validator.constraints.br.CPF
 	@NotBlank(message = "O cpf é obrigatario!")
@@ -63,11 +67,11 @@ public class Motorista {
 		this.nome = nome;
 	}
 
-	public String getDtNascimento() {
+	public Date getDtNascimento() {
 		return dtNascimento;
 	}
 
-	public void setDtNascimento(String dtNascimento) {
+	public void setDtNascimento(Date dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
 
